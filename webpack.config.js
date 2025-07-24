@@ -1,9 +1,7 @@
-// пример с сайта webpack
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const loader = require('sass-loader');
-
 const mode = process.env.NODE_ENV || 'development';
 const devMode = mode === 'development';
 const target = devMode ? 'web' : 'browserslist';
@@ -57,25 +55,16 @@ module.exports = {
       {
         test: /\.woff2?$/i,
         type: 'asset/resource',
-        generator: {
-          filename: 'fonts/[name][ext]',
-        },
+        generator: { filename: 'fonts/[name][ext]', },
       },
-
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
         type: 'asset/resource',
-
-
         use: [
           {
             loader: 'image-webpack-loader',
-
             options: {
-              mozjpeg: {
-                progressive: true,
-              },
-              // optipng.enabled: false will disable optipng
+              mozjpeg: { progressive: true, },
               optipng: {
                 enabled: false,
               },
@@ -83,19 +72,11 @@ module.exports = {
                 quality: [0.65, 0.90],
                 speed: 4
               },
-              gifsicle: {
-                interlaced: false,
-              },
-              // the webp option will enable WEBP
-              webp: {
-                quality: 75
-              }
+              gifsicle: { interlaced: false, },
+              webp: { quality: 75 }
             }
           }
         ],
-
-
-
         generator: {
           filename: (pathData) => {
             // pathData.filename — полный путь к исходному файлу
@@ -108,8 +89,6 @@ module.exports = {
           },
         },
       },
-
-
       {
         test: /\.(?:js|mjs|cjs)$/i,
         exclude: /node_modules/,
@@ -117,7 +96,7 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             targets: "defaults",
-            presets: [
+            presets: [ 
               ['@babel/preset-env']
             ]
           }

@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "description": "сборка на Webpack по видео: https://www.youtube.com/watch?v=bozzyi8Tok0",
   "main": "index.js",
+  "homepage": "https://toryatoria.github.io/webpack-bild-RSS",
   "scripts": {
     "start": "webpack serve",
     "build-dev": "webpack",
     "build-prod": "webpack --node-env=production",
-    "clear": "rimraf distant"
+    "clear": "rimraf distant",
+    "deploy" : "gh-pages -d distant"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +19,7 @@
     "@babel/preset-env": "^7.28.0",
     "babel-loader": "^10.0.0",
     "css-loader": "^7.1.2",
+    "gh-pages": "^6.3.0",
     "html-loader": "^5.1.0",
     "html-webpack-plugin": "^5.6.3",
     "image-webpack-loader": "^8.1.0",
